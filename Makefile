@@ -545,6 +545,7 @@ mytest:
 	echo $(PRE)
 	echo $(LIB_OBJ)
 	echo $(MCL_USE_LLVM)
+	echo $(UPDATE_ASM)
 
 .PHONY: test she-wasm bin/emu android update_bint_x64_asm mytest
 
