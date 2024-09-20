@@ -543,6 +543,7 @@ mytest:
 	echo $(CXX)
 	echo $(CC)
 	echo $(PRE)
+	echo $(LIB_OBJ)
 
 .PHONY: test she-wasm bin/emu android update_bint_x64_asm mytest
 
