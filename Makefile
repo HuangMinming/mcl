@@ -539,6 +539,7 @@ install: lib/libmcl.a lib/libmcl.$(LIB_SUF)
 mytest:
 	echo $(AR) $(ARFLAGS) $@ $(BN384_256_OBJ)
 	echo $(BN384_256_LIB)
+	echo $(CLANG) -c $< $(MCL_STANDALONE)
 
 .PHONY: test she-wasm bin/emu android update_bint_x64_asm mytest
 
