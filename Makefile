@@ -540,6 +540,9 @@ mytest:
 	echo $(AR) $(ARFLAGS) $@ $(BN384_256_OBJ)
 	echo $(BN384_256_LIB)
 	echo $(CLANG) -c $< $(MCL_STANDALONE)
+	echo $(CXX)
+	echo $(CC)
+	echo $(PRE)
 
 .PHONY: test she-wasm bin/emu android update_bint_x64_asm mytest
 
