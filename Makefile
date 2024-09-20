@@ -536,7 +536,10 @@ install: lib/libmcl.a lib/libmcl.$(LIB_SUF)
 	$(MKDIR) $(PREFIX)/lib
 	cp -a lib/libmcl.a lib/libmcl.$(LIB_SUF) $(PREFIX)/lib/
 
-.PHONY: test she-wasm bin/emu android update_bint_x64_asm
+mytest:
+	echo $(AR) $(ARFLAGS) $@ $(BN384_256_OBJ)
+
+.PHONY: test she-wasm bin/emu android update_bint_x64_asm mytest
 
 # don't remove these files automatically
 .SECONDARY: $(addprefix $(OBJ_DIR)/, $(ALL_SRC:.cpp=.o))
