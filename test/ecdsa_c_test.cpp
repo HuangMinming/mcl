@@ -20,6 +20,7 @@ void serializeTest(const T& x, const Serializer& serialize, const Deserializer& 
 
 CYBOZU_TEST_AUTO(ecdsa)
 {
+	printf("ok1");
 	int ret;
 	ret = ecdsaInit();
 	CYBOZU_TEST_EQUAL(ret, 0);
