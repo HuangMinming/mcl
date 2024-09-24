@@ -75,10 +75,10 @@ inline void dump(const T *x, size_t n, const char *msg = "")
 	for (size_t i = 0; i < n; i++) {
 		T v = x[n - 1 - i];
 		for (size_t j = 0; j < sizeof(T); j++) {
-			printf("%02x", uint8_t(v >> (sizeof(T) - 1 - j) * 8));
+			sprintf_s(printBuf, 8092, "%02x", uint8_t(v >> (sizeof(T) - 1 - j) * 8));
 		}
 	}
-	printf("\n");
+	sprintf_s(printBuf, 8092, "\n");
 #endif
 }
 

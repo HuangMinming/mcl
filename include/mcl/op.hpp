@@ -6,6 +6,7 @@
 	@license modified new BSD license
 	http://opensource.org/licenses/BSD-3-Clause
 */
+#include <mbusafecrt.h>
 #include <mcl/gmp_util.hpp>
 #include <mcl/array.hpp>
 #include <mcl/invmod_fwd.hpp>
@@ -392,11 +393,12 @@ inline void dump(const void *buf, size_t n)
 	(void)buf;
 	(void)n;
 #else
+	char printBuf[8092];
 	const uint8_t *s = (const uint8_t *)buf;
 	for (size_t i = 0; i < n; i++) {
-		printf("%02x ", s[i]);
+		sprintf_s(printBuf, 8092, "%02x ", s[i]);
 	}
-	printf("\n");
+	sprintf_s(printBuf, 8092, "\n");
 #endif
 }
 

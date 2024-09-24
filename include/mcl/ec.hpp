@@ -6,6 +6,7 @@
 	@license modified new BSD license
 	http://opensource.org/licenses/BSD-3-Clause
 */
+#include <mbusafecrt.h>
 #include <stdlib.h>
 #include <mcl/fp.hpp>
 #include <mcl/ecparam.hpp>
@@ -2306,12 +2307,14 @@ public:
 #ifndef CYBOZU_DONT_USE_STRING
 	static void dump(const mpz_class& x)
 	{
-		printf("\"%s\",\n", mcl::gmp::getStr(x, 16).c_str());
+		char printBuf[8092];
+		sprintf_s(printBuf, 8092, "\"%s\",\n", mcl::gmp::getStr(x, 16).c_str());
 	}
 	static void dump()
 	{
-		printf("\"%s\",\n", rw.getStr(16).c_str());
-		printf("%d,\n", (int)rBitSize);
+		char printBuf[8092];
+		sprintf_s(printBuf, 8092, "\"%s\",\n", rw.getStr(16).c_str());
+		sprintf_s(printBuf, 8092, "%d,\n", (int)rBitSize);
 		dump(v0);
 		dump(v1);
 		dump(B[0][0]); dump(B[0][1]); dump(B[1][0]); dump(B[1][1]);

@@ -84,7 +84,7 @@
 	#endif
 #elif defined(__GNUC__)
 	#include <unistd.h>
-	#include <sys/mman.h>
+	// #include <sys/mman.h>
 	#include <stdlib.h>
 	#define XBYAK_TLS __thread
 #endif
