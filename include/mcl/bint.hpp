@@ -70,7 +70,7 @@ inline void dump(const T *x, size_t n, const char *msg = "")
 	(void)msg;
 #else
 	char printBuf[8092];
-	if (msg) sprintf_s(printBuf, "%s ", msg);
+	if (msg) sprintf_s(printBuf, 8092, "%s ", msg);
 	for (size_t i = 0; i < n; i++) {
 		T v = x[n - 1 - i];
 		for (size_t j = 0; j < sizeof(T); j++) {
