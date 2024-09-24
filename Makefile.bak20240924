@@ -300,7 +300,7 @@ $(BN384_LIB): $(BN384_OBJ)
 	$(AR) $(ARFLAGS) $@ $(BN384_OBJ)
 
 $(BN384_256_LIB): $(BN384_256_OBJ)
-	$(AR) $(ARFLAGS) -nostdlib -L/opt/intel/sgxsdk/lib64 $@ $(BN384_256_OBJ)
+	$(AR) $(ARFLAGS) $@ $(BN384_256_OBJ)
 
 $(BN512_LIB): $(BN512_OBJ)
 	$(AR) $(ARFLAGS) $@ $(BN512_OBJ)
@@ -368,8 +368,7 @@ VPATH=test sample src
 .SUFFIXES: .cpp .d .exe .c .o
 
 $(OBJ_DIR)/%.o: %.cpp
-	$(PRE)$(CXX) $(CFLAGS) -nostdinc -I$/opt/intel/sgxsdk/include \
-		-I$/opt/intel/sgxsdk/include/tlibc -I$/opt/intel/sgxsdk/include/libcxx -c $< -o $@ -MMD -MP -MF $(@:.o=.d)
+	$(PRE)$(CXX) $(CFLAGS) -c $< -o $@ -MMD -MP -MF $(@:.o=.d)
 
 $(OBJ_DIR)/%.o: %.c
 	$(PRE)$(CC) $(CFLAGS) -c $< -o $@ -MMD -MP -MF $(@:.o=.d)
