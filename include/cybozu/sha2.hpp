@@ -13,7 +13,7 @@
 #ifndef CYBOZU_DONT_USE_STRING
 #include <string>
 #endif
-#include <memory.h>
+// #include <memory.h>
 
 #ifdef CYBOZU_USE_OPENSSL_SHA
 
