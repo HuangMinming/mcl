@@ -17,6 +17,7 @@ using namespace mcl::ecdsa;
 
 CYBOZU_TEST_AUTO(ecdsa)
 {
+	printf("ok12");
 	init();
 	SecretKey sec;
 	PublicKey pub;

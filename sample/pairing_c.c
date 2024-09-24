@@ -35,12 +35,48 @@ int main()
 	ASSERT(mclBnG2_getStr(buf, sizeof(buf), &Q, 16));
 	printf("Q = %s\n", buf);
 
+	size_t len = 0;
+	len = mclBnG1_serialize(buf, sizeof(buf), &P);
+	printf("serialize P(size=%d) =:\n", len);
+	for(int i=0;i<len;i++) {
+		printf("%d,", (unsigned char)buf[i]);
+	}
+	printf("\n");
+	int iEqual = 0;
+	mclBnG1 pp;
+	mclBnG1_deserialize(&pp, buf, len);
+	iEqual = mclBnG1_isEqual(&P, &pp);
+	printf("mclBnG1_isEqual(&P, &pp)=%d \n", iEqual);
+
+	len = mclBnG2_serialize(buf, sizeof(buf), &Q);
+	printf("serialize Q(size=%d) =:\n", len);
+	for(int i=0;i<len;i++) {
+		printf("%d,", (unsigned char)buf[i]);
+	}
+	printf("\n");
+	iEqual = 0;
+	mclBnG2 qq;
+	mclBnG2_deserialize(&qq, buf, len);
+	iEqual = mclBnG2_isEqual(&Q, &qq);
+	printf("mclBnG1_isEqual(&Q, &qq)=%d \n", iEqual);
+
 	mclBnG1_mul(&aP, &P, &a);
 	mclBnG2_mul(&bQ, &Q, &b);
 
 	mclBn_pairing(&e, &P, &Q);
 	ASSERT(mclBnGT_getStr(buf, sizeof(buf), &e, 16));
 	printf("e = %s\n", buf);
+	len = mclBnGT_serialize(buf, sizeof(buf), &e);
+	printf("serialize e(size=%d) =:\n", len);
+	for(int i=0;i<len;i++) {
+		printf("%d,", (unsigned char)buf[i]);
+	}
+	printf("\n");
+	iEqual = 0;
+	mclBnGT ee;
+	mclBnGT_deserialize(&ee, buf, len);
+	iEqual = mclBnGT_isEqual(&e, &ee);
+	printf("mclBnG1_isEqual(&e, &ee)=%d \n", iEqual);
 	mclBnGT_pow(&e1, &e, &a);
 	mclBn_pairing(&e2, &aP, &Q);
 	ASSERT(mclBnGT_isEqual(&e1, &e2));
