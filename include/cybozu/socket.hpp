@@ -30,7 +30,7 @@
 	#include <netinet/tcp.h>
 	#include <arpa/inet.h>
 	#include <netdb.h>
-	#include <memory.h>
+	// #include <memory.h>
 	#include <signal.h>
 #endif
 #ifndef NDEBUG

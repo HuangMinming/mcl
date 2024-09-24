@@ -218,7 +218,7 @@ public:
 #else
 
 #include <cybozu/endian.hpp>
-#include <memory.h>
+// #include <memory.h>
 #include <assert.h>
 
 namespace cybozu {

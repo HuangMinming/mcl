@@ -6,7 +6,7 @@
 	@author MITSUNARI Shigeo(@herumi)
 */
 
-#include <memory.h>
+// #include <memory.h>
 #include <limits>
 #include <cybozu/exception.hpp>
 
