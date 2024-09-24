@@ -328,7 +328,7 @@ src/dump_code: src/dump_code.cpp src/fp.cpp src/fp_generator.hpp
 src/static_code.asm: src/dump_code
 	$< > $@
 
-obj/static_code.o: $(OBJ_DIR)/%.o: %.cppsrc/static_code.asm
+obj/static_code.o: src/static_code.asm
 	nasm $(NASM_ELF_OPT) -o $@ $<
 
 bin/static_code_test.exe: test/static_code_test.cpp src/fp.cpp obj/static_code.o
