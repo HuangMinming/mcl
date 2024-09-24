@@ -8,7 +8,7 @@
 #ifndef CYBOZU_DONT_USE_STRING
 #include <string>
 #endif
-#include <memory.h>
+// #include <memory.h>
 #include <cybozu/inttype.hpp>
 #include <cybozu/bit_operation.hpp>
 
