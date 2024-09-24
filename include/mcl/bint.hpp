@@ -12,6 +12,7 @@
 #include <assert.h>
 #ifndef MCL_STANDALONE
 #include <stdio.h>
+#include <mbusafecrt.h>
 #endif
 
 //#define MCL_BINT_ASM 1
