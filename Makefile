@@ -322,8 +322,7 @@ src/base64m.ll: $(GEN_EXE)
 	$(GEN_EXE) $(GEN_EXE_OPT) -wasm > $@
 
 src/dump_code: src/dump_code.cpp src/fp.cpp src/fp_generator.hpp
-	$(CXX) -o $@ src/dump_code.cpp src/fp.cpp -g -nostdinc -I/opt/intel/sgxsdk/include \
-		-I/opt/intel/sgxsdk/include/tlibc -I/opt/intel/sgxsdk/include/libcxx -I include -DMCL_DUMP_JIT -DMCL_MAX_BIT_SIZE=384 -DMCL_SIZEOF_UNIT=8 -DNDEBUG -DMCL_MSM=0
+	$(CXX) -o $@ src/dump_code.cpp src/fp.cpp -g -nostdinc -I/opt/intel/sgxsdk/include -I/opt/intel/sgxsdk/include/tlibc -I/opt/intel/sgxsdk/include/libcxx -I include -DMCL_DUMP_JIT -DMCL_MAX_BIT_SIZE=384 -DMCL_SIZEOF_UNIT=8 -DNDEBUG -DMCL_MSM=0
 
 src/static_code.asm: src/dump_code
 	$< > $@
@@ -369,8 +368,7 @@ VPATH=test sample src
 .SUFFIXES: .cpp .d .exe .c .o
 
 $(OBJ_DIR)/%.o: %.cpp
-	$(PRE)$(CXX) $(CFLAGS) -nostdinc -I/opt/intel/sgxsdk/include \
-		-I/opt/intel/sgxsdk/include/tlibc -I/opt/intel/sgxsdk/include/libcxx -c $< -o $@ -MMD -MP -MF $(@:.o=.d)
+	$(PRE)$(CXX) $(CFLAGS) -nostdinc -Iinclude -I/opt/intel/sgxsdk/include -I/opt/intel/sgxsdk/include/tlibc -I/opt/intel/sgxsdk/include/libcxx -c $< -o $@ -MMD -MP -MF $(@:.o=.d)
 
 $(OBJ_DIR)/%.o: %.c
 	$(PRE)$(CC) $(CFLAGS) -c $< -o $@ -MMD -MP -MF $(@:.o=.d)
